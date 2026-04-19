@@ -1,34 +1,31 @@
 # Workshop 05 - Building a REST API with Express and MongoDB
 
-## Starter Notes
-
-Before starting, prepare your repository workspace:
-- Remove unnecessary content/files from the repository.
-- Copy the full content of this `starter/` folder to the repository root.
-- Continue the exercise from the repository root after the copy.
-
 ## Exercise Context
-This exercise expands the previous exercises from this FullStack course. In this exercise, students will create a REST API to handle blog postings.
-The student tasks are embedded directly into these files as TODOs:
+This workshop is part of the Laurea University of Applied Sciences, FullStack course. In this exercise, I have created a REST API to handle blog postings.
+Completed tasks are embedded directly into these files as Solution/DONE:
 - `server.js`
 - `models/Post.js` (Model.js task)
 - `routes/pages.js`
 - `routes/posts.js`
 
 ## server.js Task (`connectToDatabase`)
-In `server.js`, complete the `connectToDatabase` function so the app connects to MongoDB before starting the server.
+In `server.js`,  `connectToDatabase` function completed so the app connects to MongoDB before starting the server.
 
 ## Model Task (`models/Post.js`)
-In the model task, students must complete the `postSchema` definition for MongoDB using Mongoose. Define the post fields (`title`, `content`, `author`) with suitable validation rules (for example: `String`, `required: true`, and `trim: true`). Keep `timestamps: true` enabled so each document gets `createdAt` and `updatedAt` automatically. When this model is complete, the API routes can use it for create/read/update/delete operations and validation errors will be returned correctly during `POST` and `PUT` requests.
+In the model task, `postSchema` definition is completed for MongoDB using Mongoose. 
+Defined post fields (`title`, `content`, `author`) with suitable validation rules (i.e.: `String`, `required: true`, and `trim: true`). 
+
+`timestamps: true` enabled so each document gets `createdAt` and `updatedAt` automatically. 
+Upon completion, the API routes can use it for create/read/update/delete operations and validation errors will be returned correctly during `POST` and `PUT` requests.
 
 
 
 Implementation checklist:
-- Verify that `process.env.MONGODB_URI` exists. If missing, show a clear warning/error.
-- Call `mongoose.connect(process.env.MONGODB_URI, { dbName: 'blog' })`.
-- Log a success message when the connection is established.
-- Handle connection failures with `try/catch` and log the error message.
-- Keep server startup behind `connectToDatabase().then(...)` so routes run after the connection step.
+✅ Verify that `process.env.MONGODB_URI` exists. If missing, show a clear warning/error.
+✅ Call `mongoose.connect(process.env.MONGODB_URI, { dbName: 'blog' })`.
+✅ Log a success message when the connection is established.
+✅ Handle connection failures with `try/catch` and log the error message.
+✅ Keep server startup behind `connectToDatabase().then(...)` so routes run after the connection step.
 
 ## Quick Start
 1. Install dependencies with `npm install`
@@ -58,7 +55,7 @@ Implementation checklist:
    - Source file: `routes/pages.js`
    - Expected result: HTTP `200` + HTML page.
 
-If a browser route does not match any page route, the app should return your `404.html` file.
+If a browser route does not match any page route, the app shall return your `404.html` file.
 
 ## API Routes
 - `POST /api/posts`
@@ -93,10 +90,9 @@ If a browser route does not match any page route, the app should return your `40
       - HTTP `400` invalid id.
       - HTTP `404` post not found.
 
-Tip for testing: Start with `POST`, then copy the returned `_id` and use it in `GET /:id`, `PUT /:id`, and `DELETE /:id`.
 
-## Suggested Test Body
-Use Postman to test all API routes after implementing the TODOs.
+## Test Body
+Visual Studio Code's Postman extension was used to test all API routes after implementing required tasks.
 
 Recommended order in Postman:
 1. `POST /api/posts` (create)
@@ -105,8 +101,7 @@ Recommended order in Postman:
 4. `PUT /api/posts/:id` (update)
 5. `DELETE /api/posts/:id` (remove)
 
-Save the `_id` returned by `POST` and reuse it in `GET/PUT/DELETE` requests.
-
+Following body raw JSON-data examples (and many more) were used during the testing:
 ### Create Post (`POST /api/posts`)
 ```json
 {
